@@ -3,8 +3,28 @@ import React from "react"
 import styles from "./contactForm.module.scss"
 
 const ContactForm = () => {
+  const encode = (data) => {
+    return Object.keys(data)
+      .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    })
+    .catch((error) => alert(error))
+  }
+
   return (
-    <form className={styles.contactForm} method="post" data-netlify="true" netlify-honeypot="bot-field">
+    <form className={styles.contactForm} name="contact" method="post" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
       <div className={styles.formField}>
         <label htmlFor="name">Name:</label>
@@ -18,6 +38,7 @@ const ContactForm = () => {
         <label htmlFor="message">Message:</label>
         <textarea id="message" name="message" cols="30" rows="10"></textarea>
       </div>
+      <input name="bot-field" onChange={handleChange} hidden />
       <div className={styles.formButton}>
         <button type="submit">Send</button>
       </div>
