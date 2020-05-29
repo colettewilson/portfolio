@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../../components/layout"
 import Hero from "../../components/hero"
 import Section from "../../components/section"
-import RichText from "../../components/RichText"
+import RichText from "../../components/richText"
 import FormattedList from "../../components/formattedList"
 import Button from "../../components/button"
 
