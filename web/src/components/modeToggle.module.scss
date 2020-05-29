@@ -1,0 +1,51 @@
+.modeToggle {
+  padding: block(gutter);
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    color: var(--font-color);
+  }
+
+  circle {
+    opacity: 0;
+    transition: opacity 195ms;
+  }
+
+  @include breakpoint(small only) {
+    margin-top: auto;
+    margin-left: auto;
+  }
+}
+
+.modeToggle[data-mode="light"] {
+
+  .modeLight {
+    transform: scale(0);
+  }
+
+  .modeDark {
+    transform: scale(1);
+  }
+}
+
+.modeToggle[data-mode="dark"] {
+
+  .modeLight {
+    transform: scale(1);
+  }
+
+  .modeDark {
+    transform: scale(0);
+  }
+
+  circle {
+    opacity: 1;
+  }
+}
+
+.modeLight,
+.modeDark {
+  transition: transform 195ms;
+  transform-origin: 50% 50%;
+}

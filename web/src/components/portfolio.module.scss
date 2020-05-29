@@ -1,0 +1,103 @@
+%portfolio {
+  position: relative;
+
+  > svg {
+    position: absolute;
+    width: 140px;
+    color: var(--font-color);
+    transform: rotate(-45deg);
+  }
+
+  > span {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: var(--primary-color);
+    transform: translate(40px, 5px) rotate(45deg);
+    z-index: -1;
+  }
+}
+
+.portfolio {
+  @extend %portfolio;
+
+  > svg {
+    top: -85px;
+    right: -10px;
+
+  }
+
+  > span {
+    top: -100px;
+    right: -10px;
+  }
+
+  @include breakpoint(medium only) {
+
+    > svg {
+      top: -40px;
+      right: -20px;
+
+    }
+
+    > span {
+      top: -55px;
+      right: -20px;
+    }
+  }
+
+
+  @include breakpoint(large up) {
+
+    > svg {
+      top: -20px;
+      right: -80px;
+
+    }
+
+    > span {
+      top: -35px;
+      right: -80px;
+    }
+  }
+}
+
+.portfolioAlt {
+  position: relative;
+
+  > svg,
+  span {
+    display: none;
+  }
+}
+
+.portfolioLayout {
+  margin-bottom: block(gutter);
+
+  input {
+    @include visuallyHidden;
+  }
+
+  label {
+    position: relative;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: block(small);
+    border: 2px solid var(--bg-secondary-color);
+
+    svg {
+      width: 28px;
+      height: 28px;
+      padding: 6px;
+    }
+  }
+
+  input:checked + label {
+    background-color: var(--bg-secondary-color);
+  }
+
+  @include breakpoint(small only) {
+    display: none;
+  }
+}

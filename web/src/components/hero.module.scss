@@ -1,0 +1,212 @@
+%hero {
+  position: relative;
+  color: white;
+  background: var(--secondary-color);
+  overflow: hidden;
+
+  > span {
+    position: absolute;
+  }
+
+  > span:nth-of-type(1),
+  > span:nth-of-type(2) {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+  }
+
+  > span:nth-of-type(1) {
+    background-color: var(--primary-color);
+    transform: translate(-20px, 20px);
+  }
+
+  > span:nth-of-type(2) {
+    background-image: radial-gradient(var(--font-color) 20%, transparent 20%);
+    background-position: 0 0, 10px 10px;
+    background-size: 10px 10px;
+  }
+
+  > span:nth-of-type(3) {
+    border-right: 130px solid transparent;
+    border-left: 130px solid transparent;
+    border-bottom: 180px solid var(--primary-color);
+    transform: rotate(31deg);
+  }
+
+  > span:nth-of-type(4) {
+    display: block;
+    width: 220px;
+    height: 220px;
+    border-right: 16px solid transparent;
+    border-bottom: 16px solid var(--font-color);
+    border-left: 16px solid transparent;
+    transform: rotate(31deg) scale(0.3) translate(320px, 180px);
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -116px;
+      width: 200px;
+      height: 200px;
+      border-top: 16px solid var(--font-color);
+      border-right: 16px solid transparent;
+      border-bottom: 16px solid transparent;
+      border-left: 16px solid var(--font-color);
+      transform: rotate(45deg) skew(10deg, 10deg);
+    }
+  }
+
+  @include breakpoint(small only) {
+
+    > span:nth-of-type(1),
+    > span:nth-of-type(2) {
+      width: 150px;
+      height: 150px;
+    }
+
+    > span:nth-of-type(1) {
+      transform: translate(-15px, 15px);
+    }
+
+    > span:nth-of-type(3) {
+      border-right: 80px solid transparent;
+      border-left: 80px solid transparent;
+      border-bottom: 120px solid var(--primary-color);
+    }
+
+    > span:nth-of-type(4) {
+      transform: rotate(31deg) scale(0.3) translate(-80px, -170px);
+    }
+  }
+}
+
+.hero {
+  @extend %hero;
+  display: flex;
+  min-height: 300px;
+  align-items: center;
+
+  svg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-width: 1200px;
+    height: 100%;
+    margin-bottom: -1px;
+    color: var(--bg-color);
+    z-index: 1;
+  }
+
+  @include breakpoint(small only) {
+
+    > span:nth-of-type(1),
+    > span:nth-of-type(2) {
+      right: -30px;
+      top: -40px;
+    }
+
+    > span:nth-of-type(3),
+    > span:nth-of-type(4) {
+      top: 140px;
+      left: -10px;
+    }
+  }
+
+  @include breakpoint(medium only) {
+    min-height: 400px;
+
+    > span:nth-of-type(1),
+    > span:nth-of-type(2) {
+      right: -60px;
+      top: -60px;
+    }
+
+    > span:nth-of-type(3),
+    > span:nth-of-type(4) {
+      top: 120px;
+      left: 0;
+    }
+  }
+
+  @include breakpoint(large up) {
+    min-height: 580px;
+
+    > span:nth-of-type(1),
+    > span:nth-of-type(2) {
+      top: 40px;
+      right: 20px;
+    }
+
+    > span:nth-of-type(3),
+    > span:nth-of-type(4) {
+      top: 200px;
+      left: 50px;
+    }
+  }
+
+  @include breakpoint(xlarge up) {
+
+    > span:nth-of-type(1),
+    > span:nth-of-type(2) {
+      right: 120px;
+      bottom: 180px;
+    }
+  }
+}
+
+.heroAlt {
+  @extend %hero;
+
+  > span:nth-of-type(1),
+  > span:nth-of-type(2) {
+    right: 30px;
+    bottom: -80px;
+  }
+
+  > span:nth-of-type(3),
+  > span:nth-of-type(4) {
+    top: -40px;
+    left: 0;
+  }
+
+  @include breakpoint(small only) {
+
+    > span:nth-of-type(1),
+    > span:nth-of-type(2) {
+      right: -30px;
+      bottom: -30px;
+    }
+  }
+}
+
+.heroContent {
+  position: relative;
+  width: 100%;
+  max-width: 1166px;
+  padding: 80px block(gutter);
+  margin-top: -40px;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 2;
+
+  h1 {
+    @include hero;
+  }
+
+  .heroAlt & {
+    padding: 120px block(gutter) 80px;
+  }
+
+  @include breakpoint(large up) {
+    width: percentage(10/12);
+    padding: 120px block(medium);
+
+    .heroAlt & {
+      padding: 120px block(medium) 80px;
+    }
+  }
+}

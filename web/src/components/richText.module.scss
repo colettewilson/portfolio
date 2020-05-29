@@ -1,0 +1,10 @@
+.richText {
+
+  > div > * {
+    margin-bottom: block(gutter);
+  }
+
+  > div > *:last-child {
+    margin-bottom: 0;
+  }
+}

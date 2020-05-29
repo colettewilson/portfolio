@@ -1,0 +1,23 @@
+.formattedList {
+
+  li {
+    position: relative;
+    padding-right: block(gutter);
+    padding-left: block(gutter);
+    margin-bottom: block(small);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background-color: var(--secondary-color);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

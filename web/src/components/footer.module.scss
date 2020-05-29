@@ -1,0 +1,13 @@
+.footer {
+  padding-top: block(gutter);
+  padding-bottom: block(gutter);
+}
+
+.footerInner {
+  @include gridWidth;
+  @include gridPadding;
+
+  p {
+    font-size: 16px;
+  }
+}

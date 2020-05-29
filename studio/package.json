@@ -1,0 +1,45 @@
+{
+  "name": "ltgplc",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sanity Studio boilerplate project",
+  "main": "package.json",
+  "author": "Colette Wilson Wyatt",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build",
+    "test": "sanity check"
+  },
+  "dependencies": {
+    "@sanity/base": "^1.149.15",
+    "@sanity/block-content-to-react": "^2.0.6",
+    "@sanity/cli": "^1.149.13",
+    "@sanity/components": "^1.149.15",
+    "@sanity/core": "^1.149.13",
+    "@sanity/dashboard": "^1.149.15",
+    "@sanity/default-layout": "^1.149.15",
+    "@sanity/default-login": "^1.149.11",
+    "@sanity/desk-tool": "^1.149.15",
+    "@sanity/production-preview": "^1.149.0",
+    "bcp47": "^1.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-icons": "^3.10.0",
+    "sanity-plugin-dashboard-widget-document-list": "^0.0.8",
+    "sanity-plugin-dashboard-widget-netlify": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier-eslint-cli": "^4.7.1"
+  }
+}

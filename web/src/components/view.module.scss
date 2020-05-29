@@ -1,0 +1,86 @@
+.view {
+  position: relative;
+  z-index: 2;
+}
+
+.view[data-layout="grid"] {
+  display: grid;
+
+  grid-column-gap: block(gutter);
+
+  @include breakpoint(medium up) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(large up) {
+    grid-column-gap: block(medium);
+  }
+}
+
+.gridItem {
+  margin-bottom: block(large);
+
+  a {
+    display: block;
+  }
+
+  h3 {
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    margin-bottom: block(small);
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  @include breakpoint(medium up) {
+
+    .view[data-layout="list"] & {
+
+      a {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  @include breakpoint(large up) {
+
+    .view[data-layout="grid"] & {
+
+      &:nth-last-child(2) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.gridThumbnail {
+  @include bgImg;
+  padding-bottom: percentage(630 / 1200);
+  margin-bottom: block(small);
+  background-color: var(--bg-secondary-color);
+  filter: grayscale(100%);
+
+  @include breakpoint(medium up) {
+
+    .view[data-layout="list"] & {
+      width: 300px;
+      height: 168px;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.gridContent {
+
+  @include breakpoint(medium up) {
+
+    .view[data-layout="list"] & {
+      width: calc(100% - 300px);
+      padding: block(gutter) block(medium);
+    }
+  }
+}

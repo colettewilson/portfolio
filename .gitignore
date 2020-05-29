@@ -1,0 +1,13 @@
+### Sanity things ###
+/studio/dist
+/studio/.env*
+!/studio/.env.template
+
+### Node things ###
+/**/node_modules
+
+### Yarn things ###
+/**/yarn-error.log
+
+### Misc things ###
+.DS_Store
