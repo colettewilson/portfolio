@@ -1,8 +1,22 @@
+@keyframes circle {
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes tick {
+  90% { transform: translate(-30%, -40%) rotate(-45deg) scale(1.1); }
+  100% { transform: translate(-30%, -40%) rotate(-45deg) scale(1); }
+}
+
 .contactForm {
+  position: relative;
   padding: block(medium);
   border-radius: 5px;
   background-color: var(--bg-color);
   box-shadow: 0 0 15px 0 var(--shadow-color);
+}
+
+.contactForm[submitted] .formFront {
+  visibility: hidden;
 }
 
 .formField {
@@ -39,6 +53,23 @@
     outline: none;
 
   }
+
+  @include breakpoint(small only) {
+    background-color: transparent;
+    flex-wrap: wrap;
+
+    label {
+      width: 100%;
+      padding: 0 0 8px;
+      font-size: 14px;
+    }
+
+    input,
+    textarea {
+      border-radius: 24px;
+      background-color: var(--bg-secondary-color);
+    }
+  }
 }
 
 .formButton {
@@ -46,5 +77,67 @@
 
   button {
     @include button;
+  }
+}
+
+.formMessage {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  padding: block(gutter);
+  text-align: center;
+  transform: translateY(-50%);
+  visibility: hidden;
+
+  .contactForm[submitted] & {
+    visibility: visible;
+
+    .formSuccessIcon circle {
+      animation: circle 2s forwards ease;
+    }
+
+    .formSuccessIcon::after {
+      animation: tick 300ms 1s forwards ease;
+    }
+  }
+}
+
+.formSuccess {
+  margin-bottom: block(medium);
+}
+
+.formSuccessIcon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin-right: auto;
+  margin-bottom: block(gutter);
+  margin-left: auto;
+
+  svg {
+    width: 70px;
+    height: 70px;
+  }
+
+  circle {
+    fill: none;
+    stroke: var(--success-color);
+    stroke-width: 5px;
+    stroke-dasharray: 376px;
+    stroke-dashoffset: 376px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 15px;
+    border: 5px solid var(--success-color);
+    border-top: none;
+    border-right: none;
+    transform: translate(-30%, -40%) rotate(-45deg) scale(0);
   }
 }

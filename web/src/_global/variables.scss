@@ -114,6 +114,14 @@ $fallbacks: Helvetica Neue, Helvetica, Arial, sans-serif;
     line-height: 48px;
   }
 
+  @media only screen and (max-width: 399px) {
+
+    span {
+      font-size: 24px;
+      line-height: 1;
+    }
+  }
+
   @include breakpoint(medium up) {
     max-width: 560px;
 
@@ -227,6 +235,10 @@ $blocks: (
   &:hover {
     color: var(--bg-color);
     box-shadow: 0 0 10px 0 var(--shadow-color);
+  }
+
+  @include breakpoint(small only) {
+    margin-top: 24px;
   }
 }
 
