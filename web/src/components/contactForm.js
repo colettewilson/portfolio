@@ -19,6 +19,7 @@ const ContactForm = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     const form = evt.target
+    console.log()
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -41,15 +42,15 @@ const ContactForm = () => {
         <input name="bot-field" onChange={handleChange} hidden />
         <div className={styles.formField}>
           <label htmlFor="name">Name:</label>
-          <input id="name" name="name" type="text" required />
+          <input id="name" name="name" type="text" required onChange={handleChange} />
         </div>
         <div className={styles.formField}>
           <label htmlFor="email">Email:</label>
-          <input id="email" name="email" type="email" required />
+          <input id="email" name="email" type="email" required onChange={handleChange} />
         </div>
         <div className={styles.formField}>
           <label htmlFor="message">Message:</label>
-          <textarea id="message" name="message" cols="30" rows="10" required></textarea>
+          <textarea id="message" name="message" cols="30" rows="10" required onChange={handleChange}></textarea>
         </div>
         <div className={styles.formButton}>
           <button type="submit">Send</button>
