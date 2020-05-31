@@ -2,6 +2,23 @@ export default {
   title: 'Project',
   name: 'project',
   type: 'document',
+  initialValue: () => ({
+    publishDate: new Date().toISOString(),
+    seo: {
+      _type: 'seoOptions',
+      removeSitemap: false,
+      noIndex: false
+    }
+  }),
+  orderings: [
+    {
+      title: 'Last Published',
+      name: 'publishDate',
+      by: [
+        {field: 'publishDate', direction: 'desc'}
+      ]
+    }
+  ],
   fields: [
     {
       title: 'Title',
@@ -16,6 +33,11 @@ export default {
         source: 'title',
         maxLength: 96
       }
+    },
+    {
+      title: 'Publish Date',
+      name: 'publishDate',
+      type: 'datetime'
     },
     {
       title: 'Image',

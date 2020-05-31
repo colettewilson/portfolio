@@ -8,7 +8,7 @@ import Pagination from "../../components/pagination"
 
 export const query = graphql`
   query ($skip: Int, $limit: Int) {
-    allSanityProject(limit: $limit, skip: $skip) {
+    allSanityProject(sort: {fields: publishDate, order: DESC}, limit: $limit, skip: $skip) {
       edges {
         node {
           title
