@@ -15,7 +15,7 @@ export const query = graphql`
       heroTitle
       _rawAbout
     }
-    allSanityProject(limit: 4) {
+    allSanityProject(sort: {fields: publishDate, order: DESC}, limit: 4) {
       edges {
         node {
           _id
@@ -38,7 +38,7 @@ const IndexPage = (props) => {
       <Hero title={page.heroTitle} extra />
       <Section sectionTitle="About me" sectionId="about">
         <RichText blocks={page._rawAbout} />
-        <Button to="" label="Download my resume" newTab noFollow />
+        <Button to="https://colette.dev/colettewilsonwyatt_cv.pdf" label="Download my resume" newTab noFollow />
       </Section>
       <Section sectionTitle="Portfolio" sectionId="portfolio">
         <Portfolio projects={projects} />
