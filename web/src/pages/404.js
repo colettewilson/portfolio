@@ -4,7 +4,7 @@ import Hero from "../components/hero"
 
 const NotFoundPage = () => (
   <Layout>
-    <Hero title="Oh 💩! Looks like you've lost your way" />
+    <Hero title="Oh 💩! Page not found" />
   </Layout>
 )
 
