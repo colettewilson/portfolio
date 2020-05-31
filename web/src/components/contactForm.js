@@ -19,7 +19,6 @@ const ContactForm = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     const form = evt.target
-    console.log()
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
