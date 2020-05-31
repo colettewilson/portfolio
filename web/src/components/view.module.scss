@@ -26,8 +26,13 @@
 
   h3 {
     font-size: 20px;
+    font-weight: 700;
     letter-spacing: 0.05em;
     margin-bottom: block(small);
+  }
+
+  p {
+    font-weight: 500;
   }
 
   &:last-child {
@@ -61,13 +66,13 @@
   padding-bottom: percentage(630 / 1200);
   margin-bottom: block(small);
   background-color: var(--bg-secondary-color);
-  filter: grayscale(100%);
+  box-shadow: 0 0 15px 0 var(--shadow-color);
 
   @include breakpoint(medium up) {
 
     .view[data-layout="list"] & {
       width: 300px;
-      height: 168px;
+      height: 156px;
       padding-bottom: 0;
       margin-bottom: 0;
     }
