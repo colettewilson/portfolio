@@ -68,6 +68,12 @@ export default {
       title: 'Website',
       name: 'website',
       type: 'url'
+    },
+    {
+      title: 'Gallery',
+      name: 'gallery',
+      type: 'array',
+      of: [{type: 'formattedImage'}]
     }
   ]
 }
