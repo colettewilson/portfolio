@@ -25,11 +25,6 @@ const PortfolioTemplate = (props) => {
   return (
     <Layout>
       <Hero title={project.title} />
-      <div className="grid" style={{marginTop: `32px`}}>
-        <div className="gridItem large-10 large-offset-1">
-          <Link to="/portfolio">Return to portfolio</Link>
-        </div>
-      </div>
       <Section sectionTitle="About the project">
         {project._rawBody && <RichText blocks={project._rawBody} />}
         {project._rawStack && <>
