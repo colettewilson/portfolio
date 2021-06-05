@@ -20,7 +20,7 @@
 }
 
 .person {
-  color: var(--bg-color);
+  color: var(--font-color);
   transform-box: fill-box;
   transform-origin: 50% 50%;
   transform: scale(0);
@@ -28,4 +28,8 @@
   [data-inview] & {
     animation: pop 750ms 600ms forwards;
   }
+}
+
+.personBg {
+  color: var(--bg-color);
 }
