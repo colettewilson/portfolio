@@ -1,0 +1,100 @@
+@keyframes pop {
+  0% { transform: scale(0); }
+  20% { transform: scale(1.1); }
+  40% { transform: scale(0.9); }
+  60% { transform: scale(1.03); }
+  80% { transform: scale(0.97); }
+	100% { transform: scale(1); }
+}
+
+.hero {
+  padding: block(2xlarge) 0;
+
+  @include breakpoint(large up) {
+    padding: block(4xlarge) 0;
+  }
+}
+
+.heroTitle {
+  @include fadeInStart(400ms);
+  @include playfair;
+  max-width: 600px;
+  margin-bottom: block(medium);
+  font-size: 2.5rem;
+  line-height: 1.2;
+
+  .hero[data-inview=true] & {
+    @include fadeInEnd;
+  }
+
+  @include breakpoint(medium only) {
+    font-size: 3rem;
+  }
+
+  @include breakpoint(large up) {
+    font-size: 4rem;
+  }
+}
+
+.heroContent {
+  @include fadeInStart(400ms);
+  font-size: 1rem;
+  transition-delay: 200ms;
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    @include themeLink;
+  }
+
+  .hero[data-inview=true] & {
+    @include fadeInEnd;
+  }
+
+  @include breakpoint(medium only) {
+    font-size: 1.2rem;
+  }
+
+  @include breakpoint(large up) {
+    font-size: 1.5rem;
+  }
+}
+
+.heroIcon {
+  display: flex;
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  justify-content: center;
+
+  @include breakpoint(medium down) {
+    margin-top: block(medium)
+  }
+}
+
+.heroShape {
+  width: 100%;
+  max-width: 400px;
+  color: var(--secondary-color);
+  transform: scale(0);
+  
+  .hero[data-inview] & {
+    animation: pop 750ms 200ms forwards;
+  }
+
+  @include breakpoint(small only) {
+    max-width: 320px;
+  }
+}
+
+.heroDesk {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  max-width: 600px;
+  stroke-width: 2;
+  transform: translateY(-50%);
+}

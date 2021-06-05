@@ -1,0 +1,111 @@
+.tab {
+  position: relative;
+  padding-left: block(medium);
+  margin-bottom: block(medium);
+}
+
+.tab::before,
+.tab::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+
+.tab::before {
+  width: 10px;
+  height: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+}
+
+.tab::after {
+  @include transition(height);
+  width: 2px;
+  height: calc(100% + 2rem);
+  margin-left: 4px;
+  background-color: var(--font-color);
+  z-index: -1;
+}
+
+.tab:last-child::after {
+  display: none;
+}
+
+.tabLabel {
+  @include poppins(600);
+  display: block;
+  position: relative;
+  width: 100%;
+  color: var(--font-color);
+  cursor: pointer;
+
+  em {
+    @include poppins;
+  }
+}
+
+.tabLabel::before,
+.tabLabel::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: block(gutter);
+  width: 8px;
+  height: 2px;
+  background-color: var(--font-color);
+}
+
+.tabLabel::before {
+  transform: translateX(-2px) rotate(50deg);
+}
+
+.tabLabel[aria-expanded=true]::before {
+  transform: rotate(45deg);
+}
+
+.tabLabel::after {
+  transform: translateX(2px) rotate(-50deg);
+}
+
+.tabLabel[aria-expanded=true]::after {
+  transform: rotate(-45deg);
+}
+
+.tabLabel:focus {
+  outline: 2px dashed var(--font-color);
+  outline-offset: 4px;
+}
+
+.tabLabelDate {
+  @include poppins;
+  display: block;
+  font-size: 14px;
+}
+
+.tabContent {
+  @include transition(max-height);
+  overflow: hidden;
+}
+
+.tabContentInner {
+  padding: block(medium);
+  margin-top: block(gutter);
+  background-color: var(--bg-secondary-color);
+  border-radius: 4px;
+}
+
+.tabContentTitle {
+  @include poppins(600);
+  margin: block(gutter) 0;
+}
+
+.tabContentList {
+  @include themeList;
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    width: 50%;
+  }
+}

@@ -1,0 +1,72 @@
+.menuButton {
+  margin-right: block(gutter);
+  color: currentColor;
+  cursor: pointer;
+
+  .menuButtonLabel {
+    @include visuallyHidden;
+  }
+
+  .menuButtonIcon,
+  .menuButtonIcon::before,
+  .menuButtonIcon::after {
+    @include transition(transform);
+    display: inline-block;
+    width: 26px;
+    height: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: currentColor;
+    border-radius: 4px;
+    line-height: 1;
+  }
+
+  .menuButtonIcon {
+    @include transition(background);
+    position: relative;
+    margin-left: block(small);
+  }
+
+  .menuButtonIcon::before,
+  .menuButtonIcon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .menuButtonIcon::before {
+    margin-top: -8px;
+    transform: translateY(0) rotate(0);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &[aria-expanded=true] {
+
+    .menuButtonIcon {
+      background-color: transparent;
+    }
+
+    .menuButtonIcon::before {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menuButtonIcon::after {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+
+  @include breakpoint(medium only) {
+    opacity: 0;
+
+    [data-scrolled=true] & {
+      opacity: 1;
+    }
+  }
+
+  @include breakpoint(large up) {
+    display: none;
+  }
+}

@@ -1,0 +1,170 @@
+.view {
+  position: relative;
+  z-index: 2;
+}
+
+.view[data-layout="grid"] {
+  display: grid;
+
+  grid-column-gap: block(gutter);
+
+  @include breakpoint(medium up) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include breakpoint(large up) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: block(medium);
+  }
+}
+
+.gridItem {
+  margin-bottom: block(large);
+
+  a {
+    display: block;
+  }
+
+  a:hover {
+
+    h3::after {
+      transform: scaleY(1);
+    }
+  }
+
+  header {
+    margin-bottom: block(small);
+  }
+
+  h3 {
+    @include themeLink;
+    @include poppins(600);
+    margin-bottom: 0;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    font-weight: 500;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+
+  @include breakpoint(medium up) {
+
+    .view[data-layout="list"] & {
+
+      a {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  @include breakpoint(large up) {
+
+    .view[data-layout="grid"] & {
+
+      &:nth-last-child(2) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.gridThumbnail {
+  position: relative;
+  padding-top: 1.5rem;
+  margin-bottom: block(small);
+  border: 1px solid;
+  border-radius: 5px;
+  overflow: hidden;
+
+  @include breakpoint(medium up) {
+
+    .view[data-layout="list"] & {
+      width: 300px;
+    }
+  }
+
+  @include breakpoint(large up) {
+
+    .view[data-layout="grid"] & {
+      padding-top: 2rem;
+    }
+  }
+}
+
+.gridThumbnail::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: 1.2rem 0 0 0 currentColor, 2.4rem 0 0 0 currentColor;
+
+  @include breakpoint(large up) {
+
+    .view[data-layout="grid"] & {
+      top: 0.6rem;
+      width: 12px;
+      height: 12px;
+    }
+  }
+}
+
+.gridThumbnail::after {
+  @include transition(opacity);
+  content: 'View site';
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  line-height: 1.2;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  a:hover & {
+    opacity: 1;
+  }
+}
+
+.gridThumbnailInner {
+  position: relative;
+  padding-bottom: percentage(630 / 1200);
+  background-color: var(--bg-secondary-color);
+  border-top: 1px solid;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.gridContent {
+
+  @include breakpoint(medium up) {
+
+    .view[data-layout="list"] & {
+      width: calc(100% - 300px);
+      padding: block(gutter) block(medium);
+    }
+  }
+}
