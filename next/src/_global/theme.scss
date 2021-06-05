@@ -38,6 +38,7 @@ body {
 
 main {
   position: relative;
+  overflow: hidden;
 }
 
 a:not([class*=button]) {
