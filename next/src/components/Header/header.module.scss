@@ -1,0 +1,130 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 5;
+
+  &[data-scrolled=true] {
+    max-height: 62px;
+    border-bottom: 3px solid var(--secondary-color);
+    box-shadow: 0 0 15px 0 var(--shadow-color);
+  }
+
+  @include breakpoint(small only) {
+    border-bottom: 3px solid var(--secondary-color);
+    box-shadow: 0 0 15px 0 var(--shadow-color);
+  }
+}
+
+.headerInner {
+  @include gridWidth;
+  @include transition(padding);
+  display: flex;
+  padding: 0 block(gutter);
+  align-items: center;
+  justify-content: space-between;
+
+
+  @include breakpoint(large up) {
+    padding: 0 block(medium);
+  }
+}
+
+.headerLeft {
+  display: inline-block;
+  max-height: 48px;
+  padding: 12px 0;
+  line-height: 1;
+
+  @include breakpoint(medium only) {
+    max-height: 63px;
+    padding: block(gutter) 0;
+
+    [data-scrolled=true] & {
+      padding: block(small) 0;
+      max-height: 48px;
+    }
+  }
+
+  @include breakpoint(large up) {
+    @include transition(max-height);
+    padding: 22px 0;
+
+    [data-scrolled=true] & {
+      max-height: 3.25rem;
+      padding: 12px 0;
+    }
+  }
+}
+
+.headerTitle {
+  @include poppins(600);
+  display: inline-block;
+  font-size: 1.5rem;
+  font-feature-settings: "tnum";
+  line-height: 1;
+
+  b {
+    font-size: 2.5rem;
+  }
+
+  @include breakpoint(small only) {
+    display: none;
+  }
+}
+
+.headerTitle .initial {
+  @include transition(transform, ease, 400ms);
+  display: inline-block;
+
+  [data-scrolled=true] & {
+    transform: translateX(-80px);
+  }
+}
+
+.headerTitle .initial:nth-of-type(5) {
+  
+  [data-scrolled=true] & {
+    transform: translateX(-146px);
+  }
+}
+
+.headerTitle .initial:nth-of-type(7) {
+  
+  [data-scrolled=true] & {
+    transform: translateX(-198px);
+  }
+}
+
+.headerTitle .full {
+  @include transition((opacity, visibility));
+
+  [data-scrolled=true] & {
+    transition-delay: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.headerMobileTitle {
+  @include poppins(600);
+  font-size: 24px;
+
+  @include breakpoint(medium up) {
+    display: none;
+  }
+}
+
+.headerSubtitle {
+  @include transition((opacity, visibility, transform));
+
+  [data-scrolled=true] & {
+    opacity: 0;
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+
+  @include breakpoint(small only) {
+    display: none;
+  }
+}

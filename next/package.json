@@ -1,0 +1,23 @@
+{
+  "name": "next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@next/bundle-analyzer": "^10.2.1",
+    "@svgr/webpack": "^5.5.0",
+    "next": "10.2.1",
+    "next-sanity": "^0.2.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-intersection-observer": "^8.32.0",
+    "react-sanity-pagination": "^2.0.2",
+    "sass": "^1.32.13",
+    "zustand": "^3.5.1"
+  }
+}

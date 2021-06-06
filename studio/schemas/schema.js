@@ -7,9 +7,11 @@ import siteSettings from "./documents/siteSettings"
 import homepage from './documents/homepage'
 import project from './documents/project'
 import tag from './documents/tag'
+import role from './documents/role'
 import tool from './documents/tool'
 import richText from './components/richText'
 import formattedImage from './components/image'
+import socialPlatform from './components/socialPlatform'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,8 +25,10 @@ export default createSchema({
     homepage,
     project,
     tag,
+    role,
     tool,
     richText,
-    formattedImage
+    formattedImage,
+    socialPlatform,
   ])
 })

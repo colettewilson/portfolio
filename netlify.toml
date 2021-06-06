@@ -1,0 +1,13 @@
+[build]
+  base = "next"
+  command = "next build"
+  publish = "out"
+
+[functions]
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "14.16.0" 
+
+[context.branch-deploy.environment]
+  NEXT_SERVERLESS = "true"

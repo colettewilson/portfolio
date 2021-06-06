@@ -1,0 +1,33 @@
+.social {
+  display: flex;
+  margin-bottom: block(medium);
+}
+
+.social li {
+  margin-right: 1rem;
+}
+
+.social a {
+  @include transition(box-shadow);
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--font-color);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.social a:hover {
+  box-shadow: 0 0 10px 0 var(--shadow-color);
+}
+
+.social span {
+  @include visuallyHidden;
+}
+
+.social svg {
+  width: 16px;
+  height: 16px;
+  color: var(--bg-color);
+}

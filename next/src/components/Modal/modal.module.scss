@@ -1,0 +1,47 @@
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: block(medium);
+  z-index: 10;
+}
+
+.modalInner {
+  @include gridWidth;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: block(medium);
+  background: var(--bg-color);
+  border-radius: 8px;
+  box-shadow: 0 0 15px 0 var(--shadow-color);
+  background: red;
+}
+
+.modalClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 3rem;
+  margin: block(gutter);
+  font-size: 42px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modalClose::after {
+  content: '\00d7';
+}
+
+.modalContentLogo {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  max-height: 45px;
+  object-fit: contain;
+}

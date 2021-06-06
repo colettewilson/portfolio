@@ -1,0 +1,22 @@
+.richText {
+
+  > div > * {
+    margin-bottom: block(gutter);
+  }
+
+  > div > *:last-child {
+    margin-bottom: 0;
+  }
+
+  b {
+    @include poppins(600);
+  }
+
+  a {
+    @include themeLink;
+  }
+
+  ul {
+    @include themeList;
+  }
+}

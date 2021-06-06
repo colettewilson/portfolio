@@ -21,6 +21,11 @@ export default {
   ],
   fields: [
     {
+      title: 'Logo',
+      name: 'logo',
+      type: 'formattedImage'
+    },
+    {
       title: 'Title',
       name: 'title',
       type: 'string'
@@ -33,6 +38,12 @@ export default {
         source: 'title',
         maxLength: 96
       }
+    },
+    {
+      title: 'Tag',
+      name: 'tag',
+      type: 'reference',
+      to: {type: 'tag'}
     },
     {
       title: 'Publish Date',

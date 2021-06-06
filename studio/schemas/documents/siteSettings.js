@@ -50,6 +50,12 @@ export default {
       name: 'ogImage',
       type: 'image',
       description: 'A generic open graph image to be used as a fallback for pages without a unique open graph image.',
+    },
+    {
+      title: 'Social Media',
+      name: 'socialMedia',
+      type: 'array',
+      of: [{ type: 'socialPlatform' }]
     }
   ],
 }

@@ -1,0 +1,40 @@
+.section {
+  padding-top: block(large);
+  padding-bottom: block(large);
+  scroll-margin-top: block(large);
+
+  h3 {
+    margin-bottom: block(gutter);
+  }
+
+  @include breakpoint(large up) {
+    padding-top: block(xlarge);
+    padding-bottom: block(xlarge);
+  }
+}
+
+.sectionTitle {
+  @include fadeInStart;
+  @include playfair;
+  font-size: 2.5rem;
+  letter-spacing: 0.03em;
+  margin-bottom: block(large);
+  transition-delay: 200ms;
+
+  .section[data-inview=true] & {
+    @include fadeInEnd;
+  }
+
+  @include breakpoint(medium up) {
+    font-size: 3rem;
+  }
+}
+
+.sectionContent {
+  @include fadeInStart;
+  transition-delay: 400ms;
+
+  .section[data-inview=true] & {
+    @include fadeInEnd;
+  }
+}

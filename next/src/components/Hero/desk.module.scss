@@ -1,0 +1,68 @@
+@keyframes pop {
+  0% { transform: scale(0); }
+  20% { transform: scale(1.1); }
+  40% { transform: scale(0.9); }
+  60% { transform: scale(1.03); }
+  80% { transform: scale(0.97); }
+	100% { transform: scale(1); }
+}
+
+@keyframes fadein {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.deskItem {
+  color: white;
+  transform: scale(0);
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+
+  [theme="dark"] & {
+    color: var(--bg-secondary-color);
+  }
+}
+
+@for $i from 1 through 4 {
+  $delay: 100 * $i + 300 + ms;
+  
+  .deskItem:nth-child(#{$i}) {
+
+    [data-inview] & {
+      animation: pop 600ms $delay forwards;
+    }
+  }
+}
+
+.deskMonitorItem {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@for $i from 1 through 3 {
+    
+  .deskMonitorItem:nth-child(#{$i}) {
+    $delay: 200 * $i + 600 + ms;
+
+    [data-inview] & {
+      animation: fadein 300ms $delay forwards;
+    }
+  }
+}
+
+.deskMacbookScreen > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@for $i from 1 through 30 {
+
+  .deskMacbookScreen > *:nth-child(#{$i}) {
+    $delay: 100 * $i + 500 + ms;
+
+    [data-inview] & {
+      animation: fadein 100ms $delay forwards;
+    }
+
+  }
+}
