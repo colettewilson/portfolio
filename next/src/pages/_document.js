@@ -30,4 +30,4 @@ class MyDocument extends Document {
   }
 }
 
-export default 
+export default MyDocument
