@@ -67,7 +67,7 @@ const IndexPage = ({ data }) => {
         <Journey />
         <Section sectionTitle="About me." sectionId="about" alignment="left">
           <RichText blocks={page.about} />
-          {/* <Button to="/colettewilsonwyatt_cv.pdf" label="Download my resume" newTab noFollow /> */}
+          <Button to="/colette-wilson-wyatt-cv.pdf" label="Download my resume" newTab noFollow />
         </Section>
         <Section sectionTitle="Experience." sectionId="experience" alignment="right">
           <Accordion experience={experience} />
