@@ -37,7 +37,7 @@ const JourneyAnim = () => {
         svg.setAttribute('data-under2', false) 
       }
 
-      ref.current.style.strokeDashoffset = -dashOffset
+      ref.current.style.strokeDashoffset = 4800 - parseInt(dashOffset)
     }
   }
 

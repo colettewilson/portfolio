@@ -20,7 +20,7 @@
 }
 
 .person {
-  color: var(--font-color);
+  color: black;
   transform-box: fill-box;
   transform-origin: 50% 50%;
   transform: scale(0);
@@ -31,5 +31,9 @@
 }
 
 .personBg {
-  color: var(--bg-color);
+  color: white;
+
+  [theme="dark"] & {
+    color: var(--font-color);
+  }
 }
