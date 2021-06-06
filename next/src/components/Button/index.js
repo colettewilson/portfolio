@@ -16,7 +16,7 @@ const Button = ({ type = 'link', to, label, newTab, noFollow, onClick }) => {
   return (
     <>
       {linkType === "internal" ? (
-        <Link href={to}><a className={styles.button}>{label}</a></Link>
+        <Link href={to}><a className={styles.button} {...target} {...rel}>{label}</a></Link>
       ) : (
         <a href={to} className={styles.button} {...target} {...rel}>{label}</a>
       )}
