@@ -21,7 +21,7 @@ const Nav = (props) => {
             <Link href="/#portfolio" onClick={props.handleMenuReset}>Portfolio</Link>
           </li>
           <li>
-            <a href="/colettewilsonwyatt_cv.pdf" onClick={props.handleMenuReset} target="_blank" rel="nofollow noopener noreferrer">Resume</a>
+            <a href="/colette-wilson-wyatt-cv.pdf" onClick={props.handleMenuReset} target="_blank" rel="nofollow noopener noreferrer">Resume</a>
           </li>
           <li>
             <Link href="/#contact" onClick={props.handleMenuReset}>Contact</Link>
