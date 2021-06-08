@@ -22,7 +22,7 @@
   transition-delay: 200ms;
 
   .section[data-inview=true] &,
-  .no-js & {
+  [class="no-js"] & {
     @include fadeInEnd;
   }
 
@@ -36,7 +36,7 @@
   transition-delay: 400ms;
 
   .section[data-inview=true] &,
-  .no-js & {
+  [class="no-js"] & {
     @include fadeInEnd;
   }
 }
