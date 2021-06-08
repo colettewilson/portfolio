@@ -23,12 +23,14 @@ const Tab = ({ _key, name, position, start, end, responsibilities, skills }) => 
   return (
     <div className={styles.tab}>
       <input
-        id={_key}
+        id={`${_key}_input`}
         className={styles.tabInput}
         type="checkbox"
+        name="experience"
       />
       <label 
-        htmlFor={_key}
+        id={_key}
+        htmlFor={`${_key}_input`}
         className={styles.tabLabel}
         aria-expanded={expanded}
         aria-controls={`${name}_${position}`}

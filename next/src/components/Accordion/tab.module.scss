@@ -95,7 +95,7 @@
 }
 
 [class="no-js"] .tabInput:checked + .tabLabel + .tabContent {
-  max-height: auto;
+  max-height: initial !important;
 }
 
 .tabContentInner {
