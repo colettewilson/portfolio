@@ -17,10 +17,11 @@ class MyDocument extends Document {
     )
 
     return (
-      <Html lang="en">
+      <Html lang="en" className="no-js">
         <Head>
           {gaScript()}
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-SD2XJ671F0"></script>
+          <script async src="/js/modernizr.js" />
         </Head>
         <body>
           <Main />

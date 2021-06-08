@@ -21,7 +21,8 @@
   margin-bottom: block(large);
   transition-delay: 200ms;
 
-  .section[data-inview=true] & {
+  .section[data-inview=true] &,
+  [class="no-js"] & {
     @include fadeInEnd;
   }
 
@@ -34,7 +35,8 @@
   @include fadeInStart;
   transition-delay: 400ms;
 
-  .section[data-inview=true] & {
+  .section[data-inview=true] &,
+  [class="no-js"] & {
     @include fadeInEnd;
   }
 }
