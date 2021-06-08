@@ -4,7 +4,8 @@
   background-color: var(--bg-color);
   z-index: 5;
 
-  &[data-scrolled=true] {
+  &[data-scrolled=true],
+  [class="no-js"] & {
     max-height: 62px;
     border-bottom: 3px solid var(--secondary-color);
     box-shadow: 0 0 15px 0 var(--shadow-color);
@@ -40,7 +41,8 @@
     max-height: 63px;
     padding: block(gutter) 0;
 
-    [data-scrolled=true] & {
+    [data-scrolled=true] &,
+    [class="no-js"] & {
       padding: block(small) 0;
       max-height: 48px;
     }
@@ -50,7 +52,8 @@
     @include transition(max-height);
     padding: 22px 0;
 
-    [data-scrolled=true] & {
+    [data-scrolled=true] &,
+    [class="no-js"] & {
       max-height: 3.25rem;
       padding: 12px 0;
     }
@@ -77,21 +80,24 @@
   @include transition(transform, ease, 400ms);
   display: inline-block;
 
-  [data-scrolled=true] & {
+  [data-scrolled=true] &,
+  [class="no-js"] & {
     transform: translateX(-80px);
   }
 }
 
 .headerTitle .initial:nth-of-type(5) {
   
-  [data-scrolled=true] & {
+  [data-scrolled=true] &,
+  [class="no-js"] & {
     transform: translateX(-146px);
   }
 }
 
 .headerTitle .initial:nth-of-type(7) {
   
-  [data-scrolled=true] & {
+  [data-scrolled=true] &,
+  [class="no-js"] & {
     transform: translateX(-198px);
   }
 }
@@ -118,7 +124,8 @@
 .headerSubtitle {
   @include transition((opacity, visibility, transform));
 
-  [data-scrolled=true] & {
+  [data-scrolled=true] &,
+  [class="no-js"] & {
     opacity: 0;
     transform: translateY(-100%);
     visibility: hidden;
