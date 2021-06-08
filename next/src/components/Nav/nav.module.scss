@@ -38,7 +38,8 @@
     transform: scaleY(1);
   }
 
-  [data-scrolled=true] & {
+  [data-scrolled=true] &,
+  [class="no-js"] & {
     opacity: 1;
   }
 
