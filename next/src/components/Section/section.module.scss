@@ -28,6 +28,10 @@
   @include breakpoint(medium up) {
     font-size: 3rem;
   }
+
+  [class="no-js"] & {
+    @include fadeInEnd;
+  }
 }
 
 .sectionContent {
