@@ -21,16 +21,13 @@
   margin-bottom: block(large);
   transition-delay: 200ms;
 
-  .section[data-inview=true] & {
+  .section[data-inview=true] &,
+  .no-js & {
     @include fadeInEnd;
   }
 
   @include breakpoint(medium up) {
     font-size: 3rem;
-  }
-
-  [class="no-js"] & {
-    @include fadeInEnd;
   }
 }
 
@@ -38,7 +35,8 @@
   @include fadeInStart;
   transition-delay: 400ms;
 
-  .section[data-inview=true] & {
+  .section[data-inview=true] &,
+  .no-js & {
     @include fadeInEnd;
   }
 }
