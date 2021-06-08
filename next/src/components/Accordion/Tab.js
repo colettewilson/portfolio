@@ -7,7 +7,7 @@ import RichText from '../RichText'
 
 import styles from './tab.module.scss'
 
-const Tab = ({ _key, name, position, start, end, responsibilities, skills }) => {
+const Tab = ({ name, position, start, end, responsibilities, skills }) => {
   const [expanded, setExpanded] = useState(false)
   const [height, setHeight] = useState(0)
   const content = useRef()
@@ -23,27 +23,27 @@ const Tab = ({ _key, name, position, start, end, responsibilities, skills }) => 
   return (
     <div className={styles.tab}>
       <input
-        id={`${_key}_input`}
+        id={`${name}_${position}_input`}
         className={styles.tabInput}
         type="checkbox"
-        name="experience"
+        name={`${name}_${position}`}
       />
       <label 
-        id={_key}
-        htmlFor={`${_key}_input`}
+        id={`${name}_${position}`}
+        htmlFor={`${name}_${position}`}
         className={styles.tabLabel}
         aria-expanded={expanded}
-        aria-controls={`${name}_${position}`}
+        aria-controls={`${name}_${position}_content`}
         onClick={() => setExpanded(!expanded)}
       >
         <span>{name} - <em>{position}</em></span>
         <span className={styles.tabLabelDate}>{formatDate(start)} - {end ? formatDate(end) : 'present'}</span>
       </label>
       <div
-        id={`${name}_${position}`}
+        id={`${name}_${position}_content`}
         className={styles.tabContent}
         role="region"
-        aria-labelledby={_key}
+        aria-labelledby={`${name}_${position}`}
         aria-hidden={!expanded}
         ref={content}
         style={{ maxHeight: `${height}px` }}

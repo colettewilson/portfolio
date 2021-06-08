@@ -94,7 +94,7 @@
   overflow: hidden;
 }
 
-[class="no-js"] .tabInput:checked + .tabLabel + .tabContent {
+[class="no-js"] .tabInput:checked ~ .tabLabel ~ .tabContent {
   max-height: initial !important;
 }
 
