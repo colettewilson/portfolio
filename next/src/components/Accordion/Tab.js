@@ -22,17 +22,21 @@ const Tab = ({ _key, name, position, start, end, responsibilities, skills }) => 
 
   return (
     <div className={styles.tab}>
-      <button
+      <input
         id={_key}
+        className={styles.tabInput}
+        type="checkbox"
+      />
+      <label 
+        htmlFor={_key}
         className={styles.tabLabel}
         aria-expanded={expanded}
         aria-controls={`${name}_${position}`}
         onClick={() => setExpanded(!expanded)}
-        type="button"
       >
         <span>{name} - <em>{position}</em></span>
         <span className={styles.tabLabelDate}>{formatDate(start)} - {end ? formatDate(end) : 'present'}</span>
-      </button>
+      </label>
       <div
         id={`${name}_${position}`}
         className={styles.tabContent}

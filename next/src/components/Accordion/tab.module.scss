@@ -32,6 +32,10 @@
   display: none;
 }
 
+.tabInput {
+  display: none;
+}
+
 .tabLabel {
   @include poppins(600);
   display: block;
@@ -60,7 +64,8 @@
   transform: translateX(-2px) rotate(50deg);
 }
 
-.tabLabel[aria-expanded=true]::before {
+.tabLabel[aria-expanded=true]::before,
+.tabInput:checked + .tabLabel::before {
   transform: rotate(45deg);
 }
 
@@ -68,7 +73,8 @@
   transform: translateX(2px) rotate(-50deg);
 }
 
-.tabLabel[aria-expanded=true]::after {
+.tabLabel[aria-expanded=true]::after,
+.tabInput:checked + .tabLabel::after {
   transform: rotate(-45deg);
 }
 
@@ -86,6 +92,10 @@
 .tabContent {
   @include transition(max-height);
   overflow: hidden;
+}
+
+[class="no-js"] .tabInput:checked + .tabLabel + .tabContent {
+  max-height: auto;
 }
 
 .tabContentInner {
