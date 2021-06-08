@@ -105,7 +105,8 @@
 .headerTitle .full {
   @include transition((opacity, visibility));
 
-  [data-scrolled=true] & {
+  [data-scrolled=true] &,
+  [class="no-js"] & {
     transition-delay: 0;
     opacity: 0;
     visibility: hidden;
