@@ -92,6 +92,10 @@
 .tabContent {
   @include transition(max-height);
   overflow: hidden;
+
+  @media (prefers-reduced-motion) {
+    transition-duration: 0ms;
+  }
 }
 
 [class="no-js"] .tabInput:checked ~ .tabLabel ~ .tabContent {
