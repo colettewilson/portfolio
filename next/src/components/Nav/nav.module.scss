@@ -2,6 +2,7 @@
   @include transition(opacity);
   display: flex;
   height: 100%;
+  opacity: 0;
 
   ul {
     display: flex;
@@ -75,8 +76,11 @@
     }
   }
 
+  @include breakpoint(small only) {
+    opacity: 1;
+  }
+
   @include breakpoint(medium up) {
-    opacity: 0;
     align-items: stretch;
   }
 }

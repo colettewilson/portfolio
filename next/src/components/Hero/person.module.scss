@@ -14,8 +14,21 @@
   transform-origin: 50% 50%;
   transform: scale(0);
   
-  [data-inview] & {
+  [data-inview=true] &,
+  [class="no-js"] & {
     animation: pop 750ms 200ms forwards;
+  }
+
+  @media (prefers-reduced-motion) {
+    @include transition(opacity);
+    opacity: 0;
+    transform: scale(1);
+
+    [data-inview=true] &,
+    [class="no-js"] & {
+      animation: unset;
+      opacity: 1;  
+    }
   }
 }
 
@@ -25,8 +38,21 @@
   transform-origin: 50% 50%;
   transform: scale(0);
 
-  [data-inview] & {
+  [data-inview=true] &,
+  [class="no-js"] & {
     animation: pop 750ms 600ms forwards;
+  }
+
+  @media (prefers-reduced-motion) {
+    @include transition(opacity);
+    opacity: 0;
+    transform: scale(1);
+
+    [data-inview=true] &,
+    [class="no-js"] & {
+      animation: unset;
+      opacity: 1;  
+    }
   }
 }
 
