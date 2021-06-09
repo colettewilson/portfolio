@@ -13,8 +13,12 @@ const Header = (props) => {
   const title = useRef()
 
   useEffect(() => {
-    const scrolled = window?.scrollY > 50
-    if (!scrolled && title.current) scramble(title.current)
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+
+    if (!mediaQuery.matches) {
+      const scrolled = window?.scrollY > 50
+      if (!scrolled && title.current) scramble(title.current)
+    }
   }, [])
 
   return (
