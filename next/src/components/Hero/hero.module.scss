@@ -28,6 +28,10 @@
     @include fadeInEnd;
   }
 
+  [class="no-js"] & {
+    transition-delay: 200ms;
+  }
+
   @include breakpoint(medium only) {
     font-size: 3rem;
   }
@@ -53,6 +57,10 @@
   .hero[data-inview=true] &,
   [class="no-js"] & {
     @include fadeInEnd;
+  }
+
+  [class="no-js"] & {
+    transition-delay: 400ms;
   }
 
   @include breakpoint(medium only) {
