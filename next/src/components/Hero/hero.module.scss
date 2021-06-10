@@ -7,6 +7,11 @@
 	100% { transform: scale(1); }
 }
 
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(60px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 .hero {
   padding: block(2xlarge) 0;
 
@@ -16,16 +21,17 @@
 }
 
 .heroTitle {
-  @include fadeInStart(400ms);
   @include playfair;
   max-width: 600px;
   margin-bottom: block(medium);
   font-size: 2.5rem;
   line-height: 1.2;
+  opacity: 0;
+  transform: translateY(60px);
 
   .hero[data-inview=true] &,
   [class="no-js"] & {
-    @include fadeInEnd;
+    animation: slideIn 400ms forwards;
   }
 
   @include breakpoint(medium only) {
@@ -38,9 +44,9 @@
 }
 
 .heroContent {
-  @include fadeInStart(400ms);
   font-size: 1rem;
-  transition-delay: 200ms;
+  opacity: 0;
+  transform: translateY(60px);
 
   p {
     margin-bottom: 1rem;
@@ -52,7 +58,7 @@
 
   .hero[data-inview=true] &,
   [class="no-js"] & {
-    @include fadeInEnd;
+    animation: slideIn 400ms 200ms forwards;
   }
 
   @include breakpoint(medium only) {
