@@ -22,14 +22,15 @@
   margin-bottom: block(medium);
   font-size: 2.5rem;
   line-height: 1.2;
+  transition-delay: 200ms;
 
   .hero[data-inview=true] &,
   [class="no-js"] & {
     @include fadeInEnd;
   }
 
-  [class="no-js"] & {
-    transition-delay: 200ms;
+  [class="js"] & {
+    transition-delay: 0;
   }
 
   @include breakpoint(medium only) {
@@ -44,7 +45,7 @@
 .heroContent {
   @include fadeInStart(400ms);
   font-size: 1rem;
-  transition-delay: 200ms;
+  transition-delay: 400ms;
 
   p {
     margin-bottom: 1rem;
@@ -59,8 +60,8 @@
     @include fadeInEnd;
   }
 
-  [class="no-js"] & {
-    transition-delay: 400ms;
+  [class="js"] & {
+    transition-delay: 200ms;
   }
 
   @include breakpoint(medium only) {
