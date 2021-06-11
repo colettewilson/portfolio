@@ -35,6 +35,7 @@ const Tab = ({ _id, name, position, start, end, responsibilities, skills }) => {
         aria-expanded={expanded}
         aria-controls={`${_id}_content`}
         onClick={() => setExpanded(!expanded)}
+        tabIndex={0}
       >
         <span>{name} - <em>{position}</em></span>
         <span className={styles.tabLabelDate}>{formatDate(start)} - {end ? formatDate(end) : 'present'}</span>
