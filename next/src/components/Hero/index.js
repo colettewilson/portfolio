@@ -1,11 +1,13 @@
 import React from "react"
+import PropTypes from 'prop-types'
 import { useInView } from 'react-intersection-observer'
 
+import Person404 from './Person404'
 import Person from './Person'
 
 import styles from "./hero.module.scss"
 
-const Hero = () => {
+const Hero = ({title, children, alt }) => {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true
@@ -15,15 +17,14 @@ const Hero = () => {
     <section className={styles.hero} data-inview={inView}>
       <div className="grid">
         <div className="gridItem large-6 align-center">
-          <h1 className={styles.heroTitle} ref={ref}>Hi, I code web apps for people.</h1>
+          <h1 className={styles.heroTitle} ref={ref}>{title}</h1>
           <div className={styles.heroContent}>
-            <p>I'm passionate about building modern web applications with a focus on user experience, accessibility and performance.</p>
-            <p>I'm accepting projects so why not <a href="#contact">get in touch</a>?</p>
+            {children}
           </div>
         </div>
         <div className="gridItem large-6">
           <div className={styles.heroIcon}>
-            <Person className={styles.heroPerson} />
+            {alt ? <Person404 className={styles.heroPerson} /> : <Person className={styles.heroPerson} />}
           </div>
         </div>
       </div>
@@ -32,3 +33,8 @@ const Hero = () => {
 }
 
 export default Hero
+
+Hero.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.node
+}

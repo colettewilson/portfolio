@@ -62,7 +62,10 @@ const IndexPage = ({ data }) => {
   return (
     <Layout homepage>
       <SEO title="Homepage" global={global} />
-      <Hero/>
+      <Hero title="Hi, I code web apps for people.">
+        <p>I'm passionate about building modern web applications with a focus on user experience, accessibility and performance.</p>
+        <p>I'm accepting projects so why not <a href="#contact">get in touch</a>?</p>
+      </Hero>
       <div style={{ position: `relative` }}>
         <Journey />
         <Section sectionTitle="About me." sectionId="about" alignment="left">
